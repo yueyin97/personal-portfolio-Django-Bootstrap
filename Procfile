@@ -1,1 +1,1 @@
-web: waitress-serve --port=$PORT django-portfolio.wsgi:application
+web: waitress-serve --port=$PORT personal_portfolio.wsgi:application
