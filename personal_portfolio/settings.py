@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
+import os
 from pathlib import Path
 import django_heroku
 import dj_database_url
@@ -90,16 +91,28 @@ WSGI_APPLICATION = "personal_portfolio.wsgi.application"
 #     }
 # }
 
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.postgresql_psycopg2",
+#         "NAME": "portfolio",
+#         "USER": "postgres",
+#         "PASSWORD": "benbed1997",
+#         "PORT": "5432",
+#         "HOST": "localhost"
+#     }
+# }
+
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "NAME": "portfolio",
-        "USER": "postgres",
-        "PASSWORD": "benbed1997",
+        "NAME": "dff2mumtei3pnp",
+        "USER": "xbqreftnyywmgx",
+        "PASSWORD": "811a6ed4295e35bf603b89fb3773186dc3f902640e520219f76c3c202f2ed8b3",
         "PORT": "5432",
-        "HOST": "localhost"
+        "HOST": "ec2-63-35-156-160.eu-west-1.compute.amazonaws.com"
     }
 }
+
 
 
 # Password validation
@@ -130,11 +143,15 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_URL = "static/"
+# STATIC_URL = "static/"
+
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+STATIC_URL = "/statics/"
+django_heroku.settings(locals())
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-django_heroku.settings(locals())
+
